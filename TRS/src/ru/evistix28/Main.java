@@ -51,17 +51,21 @@ public class Main {
         System.out.println("Unifier: " + res.getValue());
     }
 
-    public static void main(String[]args)throws FileNotFoundException{
-        Scanner in=new Scanner(System.in);
-        System.out.print("Enter path to test: ");
-        String pathToTest=in.nextLine();
-        Scanner inputData = new Scanner(new FileReader(pathToTest));
-        ArrayList<String> data = new ArrayList<>(0);
-        while(inputData.hasNext()){
-            data.add(inputData.nextLine().replaceAll(" ", ""));
+    public static void main(String[]args) throws FileNotFoundException{
+        try {
+            Scanner in = new Scanner(System.in);
+            System.out.print("Enter path to test: ");
+            String pathToTest = in.nextLine();
+            Scanner inputData = new Scanner(new FileReader(pathToTest));
+            ArrayList<String> data = new ArrayList<>(0);
+            while (inputData.hasNext()) {
+                data.add(inputData.nextLine().replaceAll(" ", ""));
+            }
+            Data trs = new Data(data);
+            unification(trs);
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         }
-        Data trs = new Data(data);
-        unification(trs);
 
     }
 }
