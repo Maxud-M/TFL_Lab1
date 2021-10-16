@@ -5,9 +5,10 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 
 public class Data {
-    public ArrayList<Pair<String, String>> rewritingRules = new ArrayList<>(0);
+    public ArrayList<Pair<String, String>> rewritingRules;
 
     public Data(ArrayList<String> data) {
+        rewritingRules = new ArrayList<>(0);
         for(int i = 0; i < data.size(); ++i) {
             readRewritingRule(data.get(i));
         }
